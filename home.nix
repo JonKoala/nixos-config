@@ -14,7 +14,9 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
-  
+ 
+  nixpkgs.config.allowUnfree = true;
+ 
   imports = [
     ./applications/git/git.nix
     ./applications/kitty/kitty.nix 
@@ -24,6 +26,7 @@
   # environment.
   home.packages = [
     pkgs.fira-code-nerdfont
+    pkgs.google-chrome
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -74,7 +77,8 @@
   #  /etc/profiles/per-user/koala/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "vim";
+    NIXPKGS_ALLOW_UNFREE = 1; 
   };
 
   programs.bash = {
@@ -82,6 +86,8 @@
     shellAliases = {
       la = "ls -A";
       ll = "ls -lAFh";
+
+      chrome = "google-chrome-stable";
     };
   };
 
