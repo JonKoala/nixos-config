@@ -1,0 +1,11 @@
+{
+    // font
+    "editor.fontFamily": "FiraCode Nerd Font",
+    "editor.fontLigatures": true,
+    "workbench.tree.renderIndentGuides": "always",
+    "workbench.tree.indent": 20,
+    "glassit.alpha": 250,
+
+    // tabconfig
+    "editor.insertSpaces": true
+}
