@@ -2,6 +2,10 @@
     // font
     "editor.fontFamily": "FiraCode Nerd Font",
     "editor.fontLigatures": true,
+
+    // editor
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "workbench.iconTheme": "material-icon-theme",
     "workbench.tree.renderIndentGuides": "always",
     "workbench.tree.indent": 20,
     "glassit.alpha": 250,

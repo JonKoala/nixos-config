@@ -14,7 +14,7 @@
       system = "x86_64-linux";
     in {
 
-      nixosConfigurations.koala-nixos = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [ ./configuration.nix ];
       };
