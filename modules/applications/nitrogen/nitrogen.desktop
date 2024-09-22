@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=nitrogen --force-setter=xinerama --restore
+X-GNOME-Autostart-enabled=true
+NoDisplay=false
+Hidden=false
+Name[en_US]=nitrogen
+Comment[en_US]=No description
+X-GNOME-Autostart-Delay=1

@@ -21,6 +21,7 @@
     ../../modules/applications/git/git.nix
     ../../modules/applications/kitty/kitty.nix 
     ../../modules/applications/vscode/vscode.nix
+    ../../modules/applications/nitrogen/nitrogen.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
@@ -51,6 +52,7 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+    ".config/home-manager/home.nix".source = config.lib.file.mkOutOfStoreSymlink ./home.nix;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -91,6 +93,7 @@
       ll = "ls -lAFh";
 
       chrome = "google-chrome-stable";
+      nitrogen = "nitrogen --force-setter=xinerama --save";
     };
   };
 
