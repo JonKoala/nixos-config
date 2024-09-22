@@ -18,9 +18,9 @@
   nixpkgs.config.allowUnfree = true;
  
   imports = [
-    ./modules/applications/git/git.nix
-    ./modules/applications/kitty/kitty.nix 
-    ./modules/applications/vscode/vscode.nix
+    ../../modules/applications/git/git.nix
+    ../../modules/applications/kitty/kitty.nix 
+    ../../modules/applications/vscode/vscode.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your

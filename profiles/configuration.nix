@@ -6,8 +6,8 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
-    ./modules/hardware/nvidia.nix
+    ../hardware-configuration.nix
+    ../modules/hardware/nvidia.nix
   ];
 
   # Bootloader.
@@ -40,19 +40,6 @@
     LC_PAPER = "pt_BR.UTF-8";
     LC_TELEPHONE = "pt_BR.UTF-8";
     LC_TIME = "pt_BR.UTF-8";
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the Cinnamon Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.cinnamon.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "intl";
   };
 
   # Configure console keymap
