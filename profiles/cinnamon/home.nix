@@ -22,6 +22,7 @@
     ../../modules/applications/kitty/kitty.nix 
     ../../modules/applications/vscode/vscode.nix
     ../../modules/applications/nitrogen/nitrogen.nix
+    ../../modules/applications/starship/starship.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
@@ -29,7 +30,6 @@
   home.packages = [
     pkgs.fira-code-nerdfont
     pkgs.google-chrome
-    pkgs.godot_4
     pkgs.unzip
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -84,6 +84,13 @@
   home.sessionVariables = {
     EDITOR = "vim";
     NIXPKGS_ALLOW_UNFREE = 1; 
+  };
+
+  programs.readline = {
+    enable = true;
+    variables = {
+      completion-ignore-case = true;
+    };
   };
 
   programs.bash = {
