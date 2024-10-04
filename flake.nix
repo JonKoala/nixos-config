@@ -16,12 +16,12 @@
 
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ ./profiles/cinnamon/configuration.nix ];
+        modules = [ ./profiles/hyprland/configuration.nix ];
       };
 
       homeConfigurations.koala = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        modules = [ ./profiles/cinnamon/home.nix ];
+        modules = [ ./profiles/hyprland/home.nix ];
       };
     
     };
