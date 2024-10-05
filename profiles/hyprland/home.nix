@@ -11,8 +11,9 @@
   nixpkgs.config.allowUnfree = true;
   home.packages = [
     pkgs.fira-code-nerdfont
-    pkgs.google-chrome
     pkgs.unzip
+    pkgs.papirus-icon-theme
+    pkgs.bibata-cursors
 
     pkgs.waybar
     pkgs.hyprpaper
@@ -27,6 +28,7 @@
     ../../modules/applications/kitty/kitty.nix 
     ../../modules/applications/vscode/vscode.nix
     ../../modules/applications/starship/starship.nix
+    ../../modules/applications/google-chrome/google-chrome.nix
   ];
 
 
@@ -48,8 +50,6 @@
       shellAliases = {
         la = "ls -A";
         ll = "ls -lAFh";
-
-        chrome = "google-chrome-stable";
       };
     };
 
@@ -71,6 +71,15 @@
     ".config/hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprland.conf;
   };
   xdg.configFile."hypr/hyprpaper.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprpaper.conf;
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      icon-theme = "Papirus-Dark";
+      color-scheme = "prefer-dark";
+      cursor-theme = "Bibata-Modern-Classic";
+      cursor-size = 24;
+    };
+  };
 
   home.sessionVariables = {
     EDITOR = "vim";

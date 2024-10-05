@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Exec=google-chrome-stable --use-angle=vulkan --use-cmd-decoder=passthrough --ozone-platform=wayland
+Name=Google Chrome
+Terminal=false
+Icon=google-chrome
