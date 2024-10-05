@@ -12,6 +12,7 @@
   home.packages = [
     pkgs.fira-code-nerdfont
     pkgs.unzip
+    pkgs.udiskie
     pkgs.papirus-icon-theme
     pkgs.bibata-cursors
 
