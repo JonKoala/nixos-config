@@ -14,6 +14,10 @@
   programs.thunar.enable = true;
 
   services.udisks2.enable = true;
+  services.greetd = {
+    enable = true;
+    settings.default_session.command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --asterisks --time --time-format '%d/%m/%Y %H:%M:%S' --cmd hyprland";
+  };
 
 }
 
