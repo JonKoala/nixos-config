@@ -7,16 +7,20 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, nix-flatpak, ... }:
     let
       system = "x86_64-linux";
     in {
 
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ ./profiles/hyprland/configuration.nix ];
+        modules = [
+          nix-flatpak.nixosModules.nix-flatpak
+          ./profiles/hyprland/configuration.nix
+        ];
       };
 
       homeConfigurations.koala = home-manager.lib.homeManagerConfiguration {
