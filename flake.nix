@@ -19,14 +19,10 @@
         inherit system;
         modules = [
           nix-flatpak.nixosModules.nix-flatpak
+          home-manager.nixosModules.default
           ./profiles/hyprland/configuration.nix
         ];
       };
 
-      homeConfigurations.koala = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        modules = [ ./profiles/hyprland/home.nix ];
-      };
-    
     };
 }

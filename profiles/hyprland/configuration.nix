@@ -6,6 +6,8 @@
     ../configuration.nix
   ];
 
+  home-manager.users.koala = import ./home.nix;
+
   programs.hyprland.enable = true;
   xdg.portal = {
     enable = true;
