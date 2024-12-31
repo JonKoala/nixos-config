@@ -11,18 +11,19 @@
   };
 
   outputs = { self, nixpkgs, home-manager, nix-flatpak, ... }:
-    let
+  let
+    settings = import ./settings.nix;
+  in {
+
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-    in {
-
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          nix-flatpak.nixosModules.nix-flatpak
-          home-manager.nixosModules.default
-          ./profiles/hyprland/configuration.nix
-        ];
-      };
-
+      modules = [
+        nix-flatpak.nixosModules.nix-flatpak
+        home-manager.nixosModules.default
+        ./profiles/${settings.profile}/configuration.nix
+      ];
     };
+
+  };
+
 }
