@@ -1,9 +1,12 @@
 { config, pkgs, ... }:
 
-{
-  
+let
+  settings = import ../../settings.nix;
+  currentDir = "${settings.directories.dotfiles}/profiles/hyprland";
+in {
+
   home.username = "koala";
-  home.homeDirectory = "/home/koala";
+  home.homeDirectory = settings.directories.home;
 
 
   # packages
@@ -66,12 +69,12 @@
 
   # other configurations
 
-  home.file = {
-    ".config/home-manager/home.nix".source = config.lib.file.mkOutOfStoreSymlink ./home.nix;
- 
-    ".config/hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprland.conf;
+  xdg.configFile = {
+    "home-manager/home.nix".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/home.nix";
+
+    "hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/hyprland.conf";
+    "hypr/hyprpaper.conf".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/hyprpaper.conf";
   };
-  xdg.configFile."hypr/hyprpaper.conf".source = config.lib.file.mkOutOfStoreSymlink ./hyprpaper.conf;
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {

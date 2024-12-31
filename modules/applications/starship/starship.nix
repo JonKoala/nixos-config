@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
-{
+let
+  currentDir = "${import ../pwd.nix}/starship";
+in {
   home.packages = [ pkgs.starship ];
   programs.starship.enable = true;
-  home.file.".config/starship.toml".source = config.lib.file.mkOutOfStoreSymlink ./starship.toml; 
+  xdg.configFile."starship.toml".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/starship.toml";
 }

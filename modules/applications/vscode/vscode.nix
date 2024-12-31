@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
-{
+let
+  currentDir = "${import ../pwd.nix}/vscode";
+in {
   home.packages = [ pkgs.vscode ];
   programs.vscode.enable = true;
-  home.file.".config/Code/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink ./settings.json; 
+  xdg.configFile."Code/User/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/settings.json"; 
 }
