@@ -3,6 +3,8 @@
 let
   settings = import ../../settings.nix;
   currentDir = "${settings.directories.dotfiles}/profiles/hyprland";
+
+  cursorName = "Bibata-Modern-Classic";
 in {
 
   home.username = "koala";
@@ -21,6 +23,7 @@ in {
 
     pkgs.waybar
     pkgs.hyprpaper
+    pkgs.hyprcursor
     pkgs.wofi
 
     pkgs.libnotify
@@ -67,6 +70,28 @@ in {
   };
 
 
+  # theming
+
+  home.pointerCursor = {
+    name = cursorName;
+    package = pkgs.bibata-cursors;
+    size = 24;
+    x11 = {
+      enable = true;
+      defaultCursor = cursorName;
+    };
+    gtk.enable = true;
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      icon-theme = "Papirus-Dark";
+      color-scheme = "prefer-dark";
+      cursor-theme = cursorName;
+    };
+  };
+
+
   # other configurations
 
   xdg.configFile = {
@@ -74,15 +99,6 @@ in {
 
     "hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/hyprland.conf";
     "hypr/hyprpaper.conf".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/hyprpaper.conf";
-  };
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      icon-theme = "Papirus-Dark";
-      color-scheme = "prefer-dark";
-      cursor-theme = "Bibata-Modern-Classic";
-      cursor-size = 24;
-    };
   };
 
   home.sessionVariables = {
