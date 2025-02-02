@@ -15,7 +15,7 @@ in {
 
   nixpkgs.config.allowUnfree = true;
   home.packages = [
-    pkgs.fira-code-nerdfont
+    pkgs.nerd-fonts.fira-code
     pkgs.unzip
     pkgs.udiskie
     pkgs.papirus-icon-theme
@@ -100,6 +100,8 @@ in {
     "hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/hyprland.conf";
     "hypr/hyprpaper.conf".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/hyprpaper.conf";
   };
+
+  fonts.fontconfig.enable = true;
 
   home.sessionVariables = {
     EDITOR = "vim";
