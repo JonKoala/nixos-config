@@ -32,10 +32,11 @@ in {
   ];
   imports = [
     ../../modules/applications/git/git.nix
-    ../../modules/applications/kitty/kitty.nix 
-    ../../modules/applications/vscode/vscode.nix
-    ../../modules/applications/starship/starship.nix
+    ../../modules/applications/godot/godot.nix
     ../../modules/applications/google-chrome/google-chrome.nix
+    ../../modules/applications/kitty/kitty.nix 
+    ../../modules/applications/starship/starship.nix
+    ../../modules/applications/vscode/vscode.nix
   ];
 
 

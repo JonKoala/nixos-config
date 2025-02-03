@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Godot 4
+Exec=godot4 --display-driver wayland
+Icon=godot
+Terminal=false
+PrefersNonDefaultGPU=true
+Type=Application
+MimeType=application/x-godot-project;
+Categories=Development;IDE;
+StartupWMClass=Godot
