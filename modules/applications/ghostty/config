@@ -1,0 +1,6 @@
+theme = GruvboxDarkHard
+font-family = FiraCode Nerd Font
+font-size = 11
+background-opacity = 0.95
+resize-overlay = never
+gtk-single-instance = true

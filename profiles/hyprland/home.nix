@@ -32,6 +32,7 @@ in {
   ];
   imports = [
     ../../modules/applications/git/git.nix
+    ../../modules/applications/ghostty/ghostty.nix
     ../../modules/applications/godot/godot.nix
     ../../modules/applications/google-chrome/google-chrome.nix
     ../../modules/applications/kitty/kitty.nix 
