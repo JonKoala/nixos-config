@@ -4,6 +4,8 @@
 
   imports = [
     ../configuration.nix
+
+    ../../modules/applications/podman/podman.nix
   ];
 
   home-manager.users.koala = import ./home.nix;
