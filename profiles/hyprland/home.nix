@@ -21,10 +21,10 @@ in {
     pkgs.papirus-icon-theme
     pkgs.bibata-cursors
 
-    pkgs.waybar
     pkgs.hyprpaper
     pkgs.hyprcursor
     pkgs.wofi
+    pkgs.lm_sensors
 
     pkgs.libnotify
     pkgs.mako
@@ -38,6 +38,7 @@ in {
     ../../modules/applications/kitty/kitty.nix 
     ../../modules/applications/starship/starship.nix
     ../../modules/applications/vscode/vscode.nix
+    ../../modules/applications/waybar/waybar.nix
   ];
 
 
@@ -62,7 +63,6 @@ in {
       };
     };
 
-    waybar.enable = true;
     wofi.enable = true;
   };
 

@@ -1,0 +1,138 @@
+
+/************
+ ** Colors **
+ ************/
+
+@define-color red #CC241D;
+@define-color green #98971A;
+@define-color yellow #D79921;
+@define-color blue #458588;
+@define-color purple #B16286;
+@define-color aqua #689D6A;
+@define-color gray #A89984;
+@define-color red_l #FB4934;
+@define-color blue_l #83A598;
+@define-color fg #EBDBB2;
+@define-color orange #D65D0E;
+@define-color bg0_h rgba(29,32,33,0.85);
+@define-color bg0 #282828;
+@define-color bg1 #3C3836;
+@define-color bg2 #504945;
+@define-color bg3 #665C54;
+
+
+/*************
+ ** General **
+ *************/
+
+* {
+    font-family: FiraCode Nerd Font SemBd;
+    font-size: 14px;
+    border-radius: 5px;
+    margin: 0 5px;
+    border: none;
+    box-shadow: none;
+}
+
+
+/**************
+ ** Tooltips **
+ **************/
+
+tooltip {
+    background: @bg0_h;
+    border: solid 1px @bg3;
+}
+
+tooltip label {
+    color: @fg;
+}
+
+
+/************
+ ** Window **
+ ************/
+
+window#waybar {
+    background-color: transparent;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#window {
+    color: @fg;
+    padding: 0 5px;
+}
+
+button {
+    border: None;
+    padding: 0;
+}
+
+
+/***************
+ ** Workspace **
+ ***************/
+
+#taskbar {
+    background-color: @bg0_h;
+    padding: 0px 0px;
+    margin: 2px 2px 2px 2px;
+}
+
+#taskbar button {
+    min-width: 20px;
+    color: @red;
+    font-weight: normal;
+    padding: 0;
+    margin: 3px;
+}
+
+#taskbar button.active {
+    color: @red_l;
+    background-color: @bg0;
+}
+
+#taskbar button:hover {
+    background-color: @bg1;
+}
+
+
+/*************
+ ** Modules **
+ *************/
+
+#clock,
+#cpu-temp,
+#memory,
+#battery,
+#wireplumber,
+#tray,
+#network {
+    background-color: @bg0_h;
+    color: @gray;
+    padding: 2px 15px 0;
+    margin: 2px;
+}
+
+#tray { color: @fg; padding: 2px 5px; }
+#clock { color: @orange; }
+#memory { color: @aqua; }
+#cpu-temp { color: @blue_l; }
+#network { padding-right: 17px; }
+#wireplumber { color: @green; }
+
+#network.disconnected,
+#temperature.critical {
+  color: @red;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
