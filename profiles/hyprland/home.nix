@@ -16,10 +16,14 @@ in {
   nixpkgs.config.allowUnfree = true;
   home.packages = [
     pkgs.nerd-fonts.fira-code
-    pkgs.unzip
     pkgs.udiskie
     pkgs.papirus-icon-theme
     pkgs.bibata-cursors
+
+    pkgs.zip
+    pkgs.unzip
+    pkgs.gzip
+    pkgs.gnutar
 
     pkgs.hyprpaper
     pkgs.hyprcursor
