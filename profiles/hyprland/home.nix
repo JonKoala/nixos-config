@@ -46,6 +46,7 @@ in {
     ../../modules/applications/starship/starship.nix
     ../../modules/applications/vscode/vscode.nix
     ../../modules/applications/waybar/waybar.nix
+    ../../modules/applications/yazi/yazi.nix
   ];
 
 
@@ -113,7 +114,8 @@ in {
   fonts.fontconfig.enable = true;
 
   home.sessionVariables = {
-    EDITOR = "vim";
+    EDITOR = "nvim";
+    MANPAGER = "nvim +Man!";
     NIXPKGS_ALLOW_UNFREE = 1;
   };
 

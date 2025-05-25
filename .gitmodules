@@ -1,0 +1,3 @@
+[submodule "modules/applications/yazi/flavors/gruvbox-dark.yazi"]
+	path = modules/applications/yazi/flavors/gruvbox-dark.yazi
+	url = https://github.com/bennyyip/gruvbox-dark.yazi.git
