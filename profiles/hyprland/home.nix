@@ -32,8 +32,7 @@ in {
 
     pkgs.libnotify
     pkgs.mako
-    pkgs.polkit-kde-agent
-
+    pkgs.kdePackages.polkit-kde-agent-1
     pkgs.wl-clipboard
   ];
   imports = [
