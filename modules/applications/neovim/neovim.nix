@@ -10,6 +10,7 @@ in {
       pkgs.vimPlugins.snacks-nvim
       pkgs.vimPlugins.gruvbox-nvim
       pkgs.vimPlugins.yazi-nvim
+      pkgs.vimPlugins.mini-icons
     ];
   };
   xdg.configFile."nvim/init.lua".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/init.lua";
