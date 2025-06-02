@@ -3,6 +3,10 @@
 let
   currentDir = "${import ../pwd.nix}/neovim";
 in {
+  home.packages = [
+    pkgs.lua
+    pkgs.lua-language-server
+  ];
   programs.neovim = {
     enable = true;
 
@@ -11,8 +15,10 @@ in {
       pkgs.vimPlugins.gruvbox-nvim
       pkgs.vimPlugins.yazi-nvim
       pkgs.vimPlugins.mini-icons
+      pkgs.vimPlugins.lazydev-nvim
     ];
   };
   xdg.configFile."nvim/init.lua".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/init.lua";
+  xdg.configFile."nvim/lsp/".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/lsp/";
 }
 
