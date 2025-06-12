@@ -6,6 +6,7 @@ in {
   home.packages = [
     pkgs.lua
     pkgs.lua-language-server
+    pkgs.nixd
   ];
   programs.neovim = {
     enable = true;
@@ -17,6 +18,8 @@ in {
       pkgs.vimPlugins.mini-icons
       pkgs.vimPlugins.lazydev-nvim
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+      pkgs.vimPlugins.blink-cmp
+      pkgs.vimPlugins.friendly-snippets
     ];
   };
   xdg.configFile."nvim/init.lua".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/init.lua";

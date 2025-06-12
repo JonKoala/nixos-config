@@ -9,6 +9,9 @@ vim.cmd([[
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 5
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 
 vim.opt.clipboard:append({"unnamedplus"})
 
@@ -23,10 +26,19 @@ vim.keymap.set("n", "<Leader>fb", function() snacks.picker.buffers(snacks_picker
 vim.api.nvim_create_user_command("Yazi", function() require("yazi").yazi() end, { desc = "Open yazi at the current file" })
 
 
-vim.lsp.enable("lua_ls")
+vim.lsp.enable({ "lua_ls", "nixd", "gdscript" })
 
 ---@diagnostic disable-next-line: missing-fields
 require("lazydev").setup({
   ft = "lua"
+})
+
+---@diagnostic disable-next-line: missing-fields
+require("nvim-treesitter.configs").setup({
+  highlight = { enable = true }
+})
+
+require("blink.cmp").setup({
+  completion = { documentation = { auto_show = true } }
 })
 
