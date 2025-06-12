@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
 
@@ -60,6 +60,7 @@
   ];
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   system.stateVersion = "24.05";
 
