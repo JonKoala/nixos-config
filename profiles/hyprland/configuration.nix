@@ -9,6 +9,7 @@
   ];
 
   home-manager.users.koala = import ./home.nix;
+  home-manager.backupFileExtension = "backup";
 
   programs.hyprland.enable = true;
   xdg.portal = {
