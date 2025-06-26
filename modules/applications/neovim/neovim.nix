@@ -7,11 +7,13 @@ in {
     pkgs.lua
     pkgs.lua-language-server
     pkgs.nixd
+    pkgs.vscode-langservers-extracted
   ];
   programs.neovim = {
     enable = true;
 
     plugins = [
+      pkgs.vimPlugins.nvim-lspconfig
       pkgs.vimPlugins.snacks-nvim
       pkgs.vimPlugins.gruvbox-nvim
       pkgs.vimPlugins.yazi-nvim
