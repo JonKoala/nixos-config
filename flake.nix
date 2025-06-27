@@ -7,10 +7,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-flatpak, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
   let
     settings = import ./settings.nix;
   in {
@@ -19,7 +18,6 @@
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
-        nix-flatpak.nixosModules.nix-flatpak
         home-manager.nixosModules.default
         ./profiles/${settings.profile}/configuration.nix
       ];

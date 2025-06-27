@@ -16,6 +16,7 @@ in {
   nixpkgs.config.allowUnfree = true;
   home.packages = [
     pkgs.nerd-fonts.fira-code
+    pkgs.google-fonts
     pkgs.udiskie
     pkgs.papirus-icon-theme
     pkgs.bibata-cursors
@@ -44,6 +45,7 @@ in {
     ../../modules/applications/neovim/neovim.nix
     ../../modules/applications/starship/starship.nix
     ../../modules/applications/vscode/vscode.nix
+    ../../modules/applications/vesktop/vesktop.nix
     ../../modules/applications/waybar/waybar.nix
     ../../modules/applications/yazi/yazi.nix
   ];
