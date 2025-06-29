@@ -1,0 +1,111 @@
+* {
+    color-red-0: #cc241d;
+    color-red-1: #fb4934;
+
+    color-green-0: #98971a;
+    color-green-1: #b8bb26;
+
+    color-yellow-0: #d79921;
+    color-yellow-1: #fabd2f;
+
+    color-blue-0: #458588;
+    color-blue-1: #83a598;
+
+    color-purple-0: #b16286;
+    color-purple-1: #d3869b;
+
+    color-aqua-0: #689d6a;
+    color-aqua-1: #8ec07c;
+
+    color-orange-0: #d65d0e;
+    color-orange-1: #fe8019;
+  
+    color-gray-0: #928374;
+
+    color-bg-0-h: #1d2021;
+    color-bg-0: #282828;
+    color-bg-0-s: #32302f;
+    color-bg-1: #3c3836;
+    color-bg-2: #504945;
+    color-bg-3: #665c54;
+    color-bg-4: #7c6f64;
+
+    color-fg-0: #fbf1c7;
+    color-fg-1: #ebdbb2;
+    color-fg-2: #d5c4a1;
+    color-fg-3: #bdae93;
+    color-fg-4: #a89984;
+
+    background-color: transparent;
+}
+
+window {
+    width: 600px;
+    location: north;
+    y-offset: 300px;
+}
+
+mainbox {
+    spacing: 0px;
+    children: [ inputbar, message, listview ];
+}
+
+inputbar {
+    padding: 15px;
+    background-color: @color-bg-0;
+    color: @color-fg-0;
+}
+
+prompt, entry, case-indicator {
+    text-color: inherit;
+}
+
+message {
+    padding: 10px;
+    background-color: @color-red-1;
+    color: @color-bg-0;
+}
+
+error-message {
+    padding: 40px;
+    background-color: @color-bg-0;
+    color: @color-fg-0;
+}
+
+textbox {
+    text-color: inherit;
+}
+
+listview {
+    spacing: 0px;
+    lines: 10;
+}
+
+element {
+    padding: 10px;
+    background-color: @color-bg-0;
+    color: @color-fg-0;
+}
+
+element.selected {
+    background-color: @color-orange-1;
+    color: @color-bg-0;
+}
+
+element.normal.active {
+    background-color: @color-blue-1;
+    color: @color-bg-0;
+}
+
+element.normal.urgent {
+    background-color: @color-red-1;
+    color: @color-bg-0;
+}
+
+element-text, element-icon {
+    size: 32px;
+    margin: 0 10 0 0;
+    vertical-align: 0.5;
+    text-color: inherit;
+}
+

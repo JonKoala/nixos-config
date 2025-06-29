@@ -1,0 +1,20 @@
+configuration {
+    show-icons: true;
+    font: "Roboto Mono 12";
+    icon-theme: "Papirus-Dark";
+
+    display-combi: "❯ ";
+    display-window: "󱂬";
+    display-drun: "󰣖";
+    display-run: "󱓞";
+    display-ssh: "";
+    display-filebrowser: "󰉋";
+    drun-display-format: "{name}";
+    window-format: "{c} {t}";
+
+    modes: [ window, drun, ssh, combi ];
+    matching: "fuzzy";
+}
+
+@theme "theme"
+

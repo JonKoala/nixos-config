@@ -28,7 +28,6 @@ in {
 
     pkgs.hyprpaper
     pkgs.hyprcursor
-    pkgs.wofi
     pkgs.lm_sensors
 
     pkgs.libnotify
@@ -43,6 +42,7 @@ in {
     ../../modules/applications/google-chrome/google-chrome.nix
     ../../modules/applications/kitty/kitty.nix
     ../../modules/applications/neovim/neovim.nix
+    ../../modules/applications/rofi/rofi.nix
     ../../modules/applications/starship/starship.nix
     ../../modules/applications/vscode/vscode.nix
     ../../modules/applications/vesktop/vesktop.nix
@@ -54,7 +54,6 @@ in {
   # package configurations
 
   programs = {
-
     home-manager.enable = true;
 
     readline = {
@@ -71,8 +70,6 @@ in {
         ll = "ls -lAFh";
       };
     };
-
-    wofi.enable = true;
   };
 
   services = {
