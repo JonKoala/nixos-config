@@ -17,6 +17,8 @@ in {
   home.packages = [
     pkgs.nerd-fonts.fira-code
     pkgs.google-fonts
+    pkgs.corefonts
+
     pkgs.udiskie
     pkgs.papirus-icon-theme
     pkgs.bibata-cursors
@@ -28,7 +30,6 @@ in {
 
     pkgs.hyprpaper
     pkgs.hyprcursor
-    pkgs.lm_sensors
 
     pkgs.libnotify
     pkgs.mako

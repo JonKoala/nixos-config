@@ -3,7 +3,9 @@
 let
   currentDir = "${import ../pwd.nix}/waybar";
 in {
-  home.packages = [ pkgs.waybar ];
+  home.packages = [
+    pkgs.lm_sensors
+  ];
   programs.waybar.enable = true;
   xdg.configFile = {
     "waybar/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/config.jsonc";
