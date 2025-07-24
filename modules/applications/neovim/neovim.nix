@@ -26,5 +26,6 @@ in {
   };
   xdg.configFile."nvim/init.lua".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/init.lua";
   xdg.configFile."nvim/lsp/".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/lsp/";
+  xdg.configFile."nvim/after/".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/after/";
 }
 

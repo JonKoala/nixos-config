@@ -11,5 +11,7 @@
     "glassit.alpha": 250,
 
     // tabconfig
-    "editor.insertSpaces": true
+    "editor.insertSpaces": true,
+
+    "security.workspace.trust.enabled": false
 }
