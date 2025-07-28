@@ -8,6 +8,7 @@ in {
     pkgs.lua-language-server
     pkgs.nixd
     pkgs.vscode-langservers-extracted
+    pkgs.roslyn-ls
   ];
   programs.neovim = {
     enable = true;

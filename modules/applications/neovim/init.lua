@@ -26,7 +26,8 @@ vim.keymap.set("n", "<Leader>fb", function() snacks.picker.buffers(snacks_picker
 vim.api.nvim_create_user_command("Yazi", function() require("yazi").yazi() end, { desc = "Open yazi at the current file" })
 
 
-vim.lsp.enable({ "lua_ls", "nixd", "gdscript", "cssls", "eslint", "html", "jsonls" })
+vim.lsp.enable({ "lua_ls", "nixd", "gdscript", "cssls", "eslint", "html", "jsonls", "roslyn_ls" })
+vim.diagnostic.config({ virtual_text = { severity = vim.diagnostic.severity.ERROR } })
 
 ---@diagnostic disable-next-line: missing-fields
 require("lazydev").setup({
