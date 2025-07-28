@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Godot
+Name=Godot 4.4 (Mono)
 Exec=godot4.4-mono --display-driver wayland
 Icon=godot
 Terminal=false

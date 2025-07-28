@@ -1,6 +1,6 @@
 [Desktop Entry]
-Name=Godot
-Exec=godot4.4-mono --display-driver wayland
+Name=Godot 4.4
+Exec=godot4.4 --display-driver wayland
 Icon=godot
 Terminal=false
 PrefersNonDefaultGPU=true
