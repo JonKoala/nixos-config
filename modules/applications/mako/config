@@ -1,0 +1,21 @@
+default-timeout=10000
+
+font=Roboto Mono
+format=<span weight="bold" color="#1d2021">[%a]</span>\n<b>%s</b>\n%b
+border-size=0
+padding=10
+height=110
+
+background-color=#ebdbb2
+text-color=#3c3836
+progress-color=over #fbf1c7
+
+
+[urgency=critical]
+default-timeout=0
+format=<b>[%a]</b>\n<b>%s</b>\n%b
+
+background-color=#cc241d
+text-color=#fbf1c7
+progress-color=over #9d0006
+

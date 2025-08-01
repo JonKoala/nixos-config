@@ -32,7 +32,6 @@ in {
     pkgs.hyprcursor
 
     pkgs.libnotify
-    pkgs.mako
     pkgs.kdePackages.polkit-kde-agent-1
     pkgs.wl-clipboard
   ];
@@ -42,6 +41,7 @@ in {
     ../../modules/applications/godot/godot.nix
     ../../modules/applications/google-chrome/google-chrome.nix
     ../../modules/applications/kitty/kitty.nix
+    ../../modules/applications/mako/mako.nix
     ../../modules/applications/neovim/neovim.nix
     ../../modules/applications/rofi/rofi.nix
     ../../modules/applications/starship/starship.nix
@@ -74,7 +74,6 @@ in {
   };
 
   services = {
-    mako.enable = true;
     hyprpaper.enable = true;
   };
 
