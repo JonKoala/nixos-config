@@ -34,6 +34,8 @@ in {
     pkgs.libnotify
     pkgs.kdePackages.polkit-kde-agent-1
     pkgs.wl-clipboard
+
+    pkgs.unityhub
   ];
   imports = [
     ../../modules/applications/git/git.nix
