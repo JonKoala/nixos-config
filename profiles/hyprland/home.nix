@@ -35,7 +35,6 @@ in {
     pkgs.kdePackages.polkit-kde-agent-1
     pkgs.wl-clipboard
 
-    pkgs.unityhub
     pkgs.aseprite
     pkgs.blender
   ];
@@ -49,6 +48,7 @@ in {
     ../../modules/applications/neovim/neovim.nix
     ../../modules/applications/rofi/rofi.nix
     ../../modules/applications/starship/starship.nix
+    ../../modules/applications/unityhub/unityhub.nix
     ../../modules/applications/vscode/vscode.nix
     ../../modules/applications/vesktop/vesktop.nix
     ../../modules/applications/waybar/waybar.nix
