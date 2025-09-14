@@ -36,6 +36,8 @@ in {
     pkgs.wl-clipboard
 
     pkgs.unityhub
+    pkgs.aseprite
+    pkgs.blender
   ];
   imports = [
     ../../modules/applications/git/git.nix
