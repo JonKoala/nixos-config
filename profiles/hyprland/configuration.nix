@@ -24,6 +24,8 @@
     settings.default_session.command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --asterisks --time --time-format '%d/%m/%Y %H:%M:%S' --cmd Hyprland";
   };
 
+  programs.steam.enable = true;
+
   # activates numlock on bootup
   boot.initrd.preLVMCommands = ''
     ${pkgs.kbd}/bin/setleds +num
