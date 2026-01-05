@@ -29,14 +29,25 @@ vim.api.nvim_create_user_command("Yazi", function() require("yazi").yazi() end, 
 vim.lsp.enable({ "lua_ls", "nixd", "gdscript", "cssls", "eslint", "html", "jsonls", "roslyn_ls" })
 vim.diagnostic.config({ virtual_text = { severity = vim.diagnostic.severity.ERROR } })
 
+-- treesitter highlight
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(args)
+
+    -- avoids running on buffers that don't correspond to a language (e.g., snacks.picker)
+    local language = vim.treesitter.language.get_lang(args.match) or args.match
+    if not vim.treesitter.language.add(language) then
+        return
+    end
+
+    vim.treesitter.start(args.buf)
+  end,
+})
+
+require('mini.icons').setup()
+
 ---@diagnostic disable-next-line: missing-fields
 require("lazydev").setup({
   ft = "lua"
-})
-
----@diagnostic disable-next-line: missing-fields
-require("nvim-treesitter.configs").setup({
-  highlight = { enable = true }
 })
 
 require("blink.cmp").setup({

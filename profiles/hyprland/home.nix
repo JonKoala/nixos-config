@@ -35,7 +35,7 @@ in {
     pkgs.kdePackages.polkit-kde-agent-1
     pkgs.wl-clipboard
 
-    pkgs.aseprite
+    # pkgs.aseprite
     pkgs.blender
   ];
   imports = [
