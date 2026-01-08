@@ -9,6 +9,7 @@ in {
     pkgs.nixd
     pkgs.vscode-langservers-extracted
     pkgs.roslyn-ls
+    pkgs.dotnetCorePackages.sdk_10_0
   ];
   programs.neovim = {
     enable = true;
