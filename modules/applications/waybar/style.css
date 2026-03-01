@@ -125,14 +125,14 @@ button {
 #wireplumber { color: @green; }
 
 #network.disconnected,
-#temperature.critical {
-  color: @red;
+#custom-temp.warning { color: @yellow; }
+#custom-temp.critical {
+    color: @red;
+    animation: blink 0.5s ease-in-out infinite alternate;
 }
 
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
+@keyframes blink
+{
+    to { opacity: 0; }
 }
 

@@ -1,11 +1,8 @@
 {
-  // "layer": "top", // Waybar at top layer
-  // "position": "bottom", // Waybar position (top|bottom|left|right)
-  "height": 35, // Waybar height (to be removed for auto height)
-  // "width": 1280, // Waybar width
-  // "spacing": 4, // Gaps between modules (4px)
+  "height": 35,
   "output": ["DP-1"],
-  // Choose the order of the modules
+
+  // modules display order
   "modules-left": [
     "wireplumber"
   ],
@@ -16,38 +13,11 @@
     "memory",
     "clock"
   ],
-  // Modules configuration
-  "wlr/taskbar": {
-    "format": "{icon}",
-    "icon-size": 16,
-    "icon-theme": "Gruvbox Plus Dark",
-    "on-click": "minimize-raise",
-    "app_ids-mapping": {
-      "org.gnome.FileRoller": "FileRoller",
-      "org.pwmt.zathura": "zathura",
-      "com.github.johnfactotum.Foliate": "foliate"
-    }
-  },
+
+  // modules configuration
   "tray": {
     "icon-size": 16,
     "spacing": 10
-  },
-  "battery": {
-    "bat": "BAT0",
-    "interval": 60,
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{capacity}% {icon}",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ],
-    "max-length": 25
   },
   "cpu": {
     "format": "CPU: {usage}% |",
@@ -56,14 +26,7 @@
   "memory": {
     "format": "RAM: {}%"
   },
-  "temperature": {
-    "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
-    "critical-threshold": 80,
-    "format": "{temperatureC}°C",
-    "tooltip": false
-  },
   "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "({signalStrength}%) ",
     "format-ethernet": "󰈀",
     "tooltip-format": "{ipaddr}\n<b>up:</b> {bandwidthUpBytes} <b>down:</b> {bandwidthDownBytes}",
@@ -90,7 +53,7 @@
       "format": {
         "months": "<span color='#D3869B'><b>{}</b></span>",
         "days": "<span color='#EBDBB2'><b>{}</b></span>",
-	"weekdays": "<span color='#83A598'><b>{}</b></span>",
+	      "weekdays": "<span color='#83A598'><b>{}</b></span>",
         "today": "<span color='#FE8019'><b>{}</b></span>"
       }
     },
@@ -100,9 +63,16 @@
     },
     "tooltip": true
   },
+  "custom/temp": {
+    "exec": "~/.config/waybar/cpu-temp.sh",
+    "return-type": "json",
+    "interval": 5,
+    "format": "{}",
+    "tooltip": false
+  },
   "group/cpu-temp": {
     "orientation": "horizontal", 
-    "modules": [ "cpu", "temperature" ]
+    "modules": [ "cpu", "custom/temp" ]
   }
 }
 
