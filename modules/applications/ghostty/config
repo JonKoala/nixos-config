@@ -1,6 +1,14 @@
 theme = Gruvbox Dark Hard
 font-family = FiraCode Nerd Font
 font-size = 11
+window-padding-x = 10
+
 background-opacity = 0.95
 resize-overlay = never
+
 gtk-single-instance = true
+#quit-after-last-window-closed = false
+
+selection-foreground = #1d2021
+selection-background = #fe8019
+

@@ -14,6 +14,10 @@ in {
   programs.neovim = {
     enable = true;
 
+    # default configuration (setting to hide nixos evaluation warnings)
+    withRuby = false;
+    withPython3 = false;
+
     plugins = [
       pkgs.vimPlugins.nvim-lspconfig
       pkgs.vimPlugins.snacks-nvim

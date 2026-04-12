@@ -53,6 +53,7 @@ in {
     ../../modules/applications/vesktop/vesktop.nix
     ../../modules/applications/waybar/waybar.nix
     ../../modules/applications/yazi/yazi.nix
+    ../../modules/applications/wezterm/wezterm.nix
     ../../modules/applications/zathura/zathura.nix
   ];
 

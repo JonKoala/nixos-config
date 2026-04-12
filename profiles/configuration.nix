@@ -12,6 +12,7 @@
 
   fileSystems."/run/media/koala/DATA" = {
     device = "dev/disk/by-uuid/ced7785d-9cf5-4a40-8f65-f156dc7b1a1e";
+    fsType = "ext4";
     options = ["nofail"];
   };
 

@@ -3,7 +3,12 @@
 let
   currentDir = "${import ../pwd.nix}/git";
 in {
-  home.packages = [ pkgs.git ];
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+
+    # default configuration (setting to hide nixos evaluation warnings)
+    signing.format = null;
+  };
+
   home.file.".gitconfig".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/.gitconfig";
 }
