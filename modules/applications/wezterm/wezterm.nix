@@ -5,8 +5,6 @@ let
 in {
   programs.wezterm.enable = true;
 
-  xdg.configFile = {
-    "wezterm/wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/wezterm.lua";
-    "wezterm/colorschemes.lua".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/colorschemes.lua";
-  };
+  xdg.configFile."wezterm/wezterm.lua".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/wezterm.lua";
+  xdg.configFile."wezterm/colorschemes.lua".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/colorschemes.lua";
 }

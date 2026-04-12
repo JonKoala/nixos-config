@@ -11,6 +11,7 @@ in {
     pkgs.roslyn-ls
     pkgs.dotnetCorePackages.sdk_10_0
   ];
+
   programs.neovim = {
     enable = true;
 
@@ -30,6 +31,7 @@ in {
       pkgs.vimPlugins.friendly-snippets
     ];
   };
+
   xdg.configFile."nvim/init.lua".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/init.lua";
   xdg.configFile."nvim/lsp/".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/lsp/";
   xdg.configFile."nvim/after/".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/after/";
