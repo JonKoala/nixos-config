@@ -43,6 +43,8 @@ in {
   programs = {
     home-manager.enable = true;
 
+    obsidian.enable = true;
+
     google-chrome.enable = true;
     imv.enable = true;
   };
