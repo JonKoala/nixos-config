@@ -50,6 +50,7 @@ in {
   };
 
   imports = [
+    ../../modules/applications/claude-code/claude-code.nix
     ../../modules/applications/ghostty/ghostty.nix
     ../../modules/applications/git/git.nix
     ../../modules/applications/godot/godot.nix
@@ -117,6 +118,7 @@ in {
   # theming
 
   home.pointerCursor = {
+    enable = true;
     name = cursorName;
     package = pkgs.bibata-cursors;
     size = 24;
@@ -141,7 +143,7 @@ in {
   xdg.configFile = {
     "home-manager/home.nix".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/home.nix";
 
-    "hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/hyprland.conf";
+    "hypr/hyprland.lua".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/hyprland.lua";
     "hypr/hyprpaper.conf".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/hyprpaper.conf";
   };
 

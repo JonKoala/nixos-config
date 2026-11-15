@@ -26,10 +26,17 @@
 
   programs.steam.enable = true;
 
-  # activates numlock on bootup
-  boot.initrd.preLVMCommands = ''
-    ${pkgs.kbd}/bin/setleds +num
-  '';
+  # activates numlock on bootup (on the greeter's VT)
+  systemd.services.numlock = {
+    wantedBy = [ "multi-user.target" ];
+    before = [ "greetd.service" ];
+    restartIfChanged = false; # don't re-run on nixos-rebuild switch; it's only meaningful at boot
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = "${pkgs.bash}/bin/sh -c '${pkgs.kbd}/bin/setleds -D +num < /dev/tty1'";
+    };
+  };
 
 }
 
