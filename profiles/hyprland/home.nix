@@ -27,10 +27,7 @@ in {
     pkgs.hyprcursor
 
     pkgs.libnotify
-    pkgs.kdePackages.polkit-kde-agent-1
     pkgs.wl-clipboard
-
-    pkgs.udiskie
 
     pkgs.zip
     pkgs.unzip
@@ -59,6 +56,7 @@ in {
     ../../modules/applications/neovim/neovim.nix
     ../../modules/applications/rofi/rofi.nix
     ../../modules/applications/starship/starship.nix
+    ../../modules/applications/udiskie/udiskie.nix
     ../../modules/applications/unityhub/unityhub.nix
     ../../modules/applications/vesktop/vesktop.nix
     ../../modules/applications/vscode/vscode.nix
@@ -89,6 +87,7 @@ in {
 
   services = {
     hyprpaper.enable = true;
+    hyprpolkitagent.enable = true;
   };
 
   xdg.mimeApps.enable = true;

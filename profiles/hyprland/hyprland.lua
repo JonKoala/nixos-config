@@ -64,11 +64,6 @@ local function startup_workspace(class, ws, max, quiet_ms)
 end
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("waybar")
-    hl.exec_cmd("mako")
-    hl.exec_cmd("systemctl --user start plasma-polkit-agent")
-    hl.exec_cmd("hyprpaper")
-    hl.exec_cmd("udiskie")
 
     -- fix for ghostty's slow startup
     hl.exec_cmd("ghostty --initial-window=false")
@@ -77,7 +72,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd(terminal, { workspace = "1 silent" })
 
     -- special cases where the window creation process is borked
-    startup_workspace("vesktop", 7, 2)
+    startup_workspace("vesktop", 7, 2, 3000)
     startup_workspace("google-chrome", 9, 10, 2000)
     hl.exec_cmd("vesktop")
     hl.exec_cmd("google-chrome-stable")

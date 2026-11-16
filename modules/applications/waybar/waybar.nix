@@ -7,7 +7,10 @@ in {
     pkgs.lm_sensors
   ];
 
-  programs.waybar.enable = true;
+  programs.waybar = {
+    enable = true;
+    systemd.enable = true;
+  };
 
   xdg.configFile."waybar/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/config.jsonc";
   xdg.configFile."waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink "${currentDir}/style.css";
