@@ -41,9 +41,27 @@ end)
 --- AUTOSTART ---
 -----------------
 
--- temporary rules: send vesktop/chrome to their workspace on launch, then drop the rule
-local vesktopRule = hl.window_rule({ name = "vesktop-startup", match = { class = "vesktop" },       workspace = "7 silent" })
-local chromeRule  = hl.window_rule({ name = "chrome-startup",  match = { class = "google-chrome" }, workspace = "9 silent" })
+-- hack for special cases where the window creation process is borked
+-- send up to `max` windows of `class` to `ws` at startup; stops at `max` or after `quiet_ms` without a new window
+local function startup_workspace(class, ws, max, quiet_ms)
+    local rule = hl.window_rule({ name = class .. "-startup", match = { class = class }, workspace = ws .. " silent" })
+    local seen = 0
+    local sub, quiet
+
+    local function finish()
+        rule:set_enabled(false)
+        sub:remove()
+        if quiet then quiet:set_enabled(false) end
+    end
+
+    sub = hl.on("window.open", function(w)
+        if not (w and w.class == class) then return end
+        seen = seen + 1
+        if seen >= max then return finish() end
+        if quiet then quiet:set_enabled(false) end
+        if quiet_ms then quiet = hl.timer(finish, { timeout = quiet_ms, type = "oneshot" }) end
+    end)
+end
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("waybar")
@@ -58,11 +76,11 @@ hl.on("hyprland.start", function()
     -- default programs to open on each workspace
     hl.exec_cmd(terminal, { workspace = "1 silent" })
 
+    -- special cases where the window creation process is borked
+    startup_workspace("vesktop", 7, 2)
+    startup_workspace("google-chrome", 9, 10, 2000)
     hl.exec_cmd("vesktop")
-    hl.timer(function() vesktopRule:set_enabled(false) end, { timeout = 10000, type = "oneshot" })
-
     hl.exec_cmd("google-chrome-stable")
-    hl.timer(function() chromeRule:set_enabled(false) end, { timeout = 5000, type = "oneshot" })
 
     -- move cursor to main monitor
     hl.timer(function() hl.dispatch(hl.dsp.focus({ workspace = 1 })) end, { timeout = 500, type = "oneshot" })
