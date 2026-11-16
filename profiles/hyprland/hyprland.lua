@@ -16,6 +16,7 @@ hl.monitor({ output = "HDMI-A-1", disabled = true })
 local terminal    = "kitty"
 local fileManager = "thunar"
 local menu        = "rofi -combi-modi window,drun,ssh -show combi"
+local claude      = "google-chrome-stable --app=https://claude.ai"
 
 
 ------------------
@@ -29,10 +30,13 @@ for i = 7, 8 do hl.workspace_rule({ workspace = tostring(i), monitor = "DP-1" })
 -- right monitor
 for i = 9, 10 do hl.workspace_rule({ workspace = tostring(i), monitor = "DP-3" }) end
 
--- special workspace (scratchpad)
+-- special workspaces (scratchpads)
 hl.on("workspace.created", function(ws)
     if ws and ws.name == "special:scratchpad_terminal" and ws.is_empty then
         hl.exec_cmd(terminal)
+    end
+    if ws and ws.name == "special:scratchpad_claude" and ws.is_empty then
+        hl.exec_cmd(claude)
     end
 end)
 
@@ -114,6 +118,7 @@ local mainMod = "SUPER"
 
 hl.bind(mainMod .. " + T",     hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q",     hl.dsp.workspace.toggle_special("scratchpad_terminal"))
+hl.bind(mainMod .. " + A",     hl.dsp.workspace.toggle_special("scratchpad_claude"))
 hl.bind(mainMod .. " + C",     hl.dsp.window.close())
 hl.bind(mainMod .. " + M",     hl.dsp.exit())
 hl.bind(mainMod .. " + E",     hl.dsp.exec_cmd(fileManager))
@@ -239,6 +244,7 @@ hl.animation({ leaf = "zoomFactor",    enabled = true, speed = 7,    bezier = "q
 --------------------
 
 hl.window_rule({ match = { workspace = "special:scratchpad_terminal" }, float = true, size = "(monitor_w*0.5) (monitor_h*0.5)" })
+hl.window_rule({ match = { class = "chrome-claude\\.ai__-Default" }, workspace = "special:scratchpad_claude", float = true, center = true, size = "(monitor_w*0.8) (monitor_h*0.8)" })
 
 hl.window_rule({ match = { class = "thunar", title = "Rename.*" }, float = true, stay_focused = true, move = "(cursor_x-(window_w*0.5)) (cursor_y-(window_h*0.5))" })
 
