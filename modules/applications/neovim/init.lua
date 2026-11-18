@@ -1,11 +1,11 @@
+vim.g.mapleader = ","
+
 require("gruvbox").setup({
   contrast = "hard",
   transparent_mode = true
 })
 
-vim.cmd([[
-  colorscheme gruvbox
-]])
+vim.cmd.colorscheme("gruvbox")
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -15,8 +15,6 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 
 vim.opt.clipboard:append({"unnamedplus"})
-
-vim.g.mapleader = ","
 
 local snacks = require("snacks")
 local snacks_picker_config = { win = { input = { keys = { ["<esc>"] = { "close", mode = { "n", "i"} } } } } }
@@ -35,6 +33,19 @@ vim.filetype.add({
 })
 vim.lsp.enable({ "lua_ls", "nixd", "gdscript", "cssls", "eslint", "html", "jsonls", "roslyn_ls" })
 vim.diagnostic.config({ virtual_text = { severity = vim.diagnostic.severity.ERROR } })
+
+-- prefer treesitter highlighting: disable lsp semantic tokens,
+-- except for the servers listed here
+local semantic_tokens_allowlist = {}
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("disable_semantic_tokens", {}),
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and not vim.list_contains(semantic_tokens_allowlist, client.name) then
+      vim.lsp.semantic_tokens.enable(false, { client_id = client.id })
+    end
+  end,
+})
 
 -- treesitter highlight
 vim.api.nvim_create_autocmd("FileType", {
