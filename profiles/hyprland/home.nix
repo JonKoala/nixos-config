@@ -28,6 +28,8 @@ in {
 
     pkgs.libnotify
     pkgs.wl-clipboard
+    pkgs.fd
+    pkgs.ripgrep
 
     pkgs.zip
     pkgs.unzip
