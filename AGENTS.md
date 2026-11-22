@@ -10,6 +10,10 @@ NixOS flake + home-manager config for a single machine (hyprland profile).
 - Apps that just need installing go directly in profiles/hyprland/home.nix
   (home.packages, or programs.<app>.enable) — no module needed
 
+## Workflow
+- Before changing any files, always explain the proposed solution (briefly is
+  fine), then ask for approval and wait for it before applying
+
 ## Commands
  - Never run nix-related commands (nix, nixos-rebuild, nix-shell, home-manager,
 etc.). Suggest them; the user runs them.
