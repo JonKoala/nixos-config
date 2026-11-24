@@ -30,6 +30,7 @@ in {
     pkgs.wl-clipboard
     pkgs.fd
     pkgs.ripgrep
+    pkgs.jq
 
     pkgs.zip
     pkgs.unzip
@@ -59,6 +60,7 @@ in {
     ../../modules/applications/rofi/rofi.nix
     ../../modules/applications/starship/starship.nix
     ../../modules/applications/udiskie/udiskie.nix
+    ../../modules/applications/unity-cli/unity-cli.nix
     ../../modules/applications/unityhub/unityhub.nix
     ../../modules/applications/vesktop/vesktop.nix
     ../../modules/applications/vscode/vscode.nix

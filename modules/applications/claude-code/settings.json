@@ -3,5 +3,13 @@
   "theme": "custom:gruvbox-dark-hard",
   "permissions": {
     "defaultMode": "default"
+  },
+  "extraKnownMarketplaces": {
+    "unity-agent-plugin": {
+      "source": { "source": "github", "repo": "Unity-Technologies/unity-agent-plugin" }
+    }
+  },
+  "enabledPlugins": {
+    "unity@unity-agent-plugin": true
   }
 }
