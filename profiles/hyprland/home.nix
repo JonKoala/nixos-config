@@ -39,6 +39,7 @@ in {
 
     pkgs.aseprite
     pkgs.blender
+    pkgs.imagemagick
   ];
   programs = {
     home-manager.enable = true;
