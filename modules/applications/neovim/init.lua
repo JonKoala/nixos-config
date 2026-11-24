@@ -17,6 +17,7 @@ vim.opt.tabstop = 2
 vim.opt.clipboard:append({"unnamedplus"})
 
 local snacks = require("snacks")
+snacks.setup({ image = { enabled = true, math = { enabled = false } } })
 local snacks_picker_config = { win = { input = { keys = { ["<esc>"] = { "close", mode = { "n", "i"} } } } } }
 vim.keymap.set("n", "<Leader>e", function() snacks.picker.explorer({ hidden = true }) end, {})
 vim.keymap.set("n", "<Leader>ff", function() snacks.picker.smart(vim.tbl_deep_extend("force", snacks_picker_config, { filter = { cwd = true } })) end, {})
@@ -62,6 +63,10 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 require('mini.icons').setup()
+
+require("markview").setup({
+  preview = { icon_provider = "mini" },
+})
 
 ---@diagnostic disable-next-line: missing-fields
 require("lazydev").setup({

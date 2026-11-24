@@ -29,6 +29,7 @@ in {
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars
       pkgs.vimPlugins.blink-cmp
       pkgs.vimPlugins.friendly-snippets
+      pkgs.vimPlugins.markview-nvim
     ];
   };
 
