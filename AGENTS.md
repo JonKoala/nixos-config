@@ -15,7 +15,7 @@ NixOS flake + home-manager config for a single machine (hyprland profile).
   fine), then ask for approval and wait for it before applying
 
 ## Commands
- - Never run nix-related commands (nix, nixos-rebuild, nix-shell, home-manager,
+- Never run nix-related commands (nix, nixos-rebuild, nix-shell, home-manager,
 etc.). Suggest them; the user runs them.
 
 ## Conventions
