@@ -25,6 +25,7 @@ in {
       pkgs.vimPlugins.gruvbox-nvim
       pkgs.vimPlugins.yazi-nvim
       pkgs.vimPlugins.mini-icons
+      pkgs.vimPlugins.mini-diff
       pkgs.vimPlugins.lazydev-nvim
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars
       pkgs.vimPlugins.blink-cmp

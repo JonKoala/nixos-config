@@ -22,6 +22,7 @@ local snacks_picker_config = { win = { input = { keys = { ["<esc>"] = { "close",
 vim.keymap.set("n", "<Leader>e", function() snacks.picker.explorer({ hidden = true }) end, {})
 vim.keymap.set("n", "<Leader>ff", function() snacks.picker.smart(vim.tbl_deep_extend("force", snacks_picker_config, { filter = { cwd = true } })) end, {})
 vim.keymap.set("n", "<Leader>fb", function() snacks.picker.buffers(snacks_picker_config) end, {})
+vim.keymap.set("n", "<Leader>gs", function() snacks.picker.git_status(snacks_picker_config) end, {})
 
 vim.api.nvim_create_user_command("Yazi", function() require("yazi").yazi() end, { desc = "Open yazi at the current file" })
 
@@ -63,6 +64,10 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 require('mini.icons').setup()
+
+local mini_diff = require("mini.diff")
+mini_diff.setup()
+vim.keymap.set("n", "<Leader>gd", function() mini_diff.toggle_overlay() end, {})
 
 require("markview").setup({
   preview = { icon_provider = "mini" },
