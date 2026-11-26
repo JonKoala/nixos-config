@@ -37,7 +37,6 @@ in {
     pkgs.gzip
     pkgs.gnutar
 
-    pkgs.aseprite
     pkgs.blender
     pkgs.imagemagick
   ];
@@ -51,6 +50,7 @@ in {
   };
 
   imports = [
+    ../../modules/applications/aseprite/aseprite.nix
     ../../modules/applications/claude-code/claude-code.nix
     ../../modules/applications/ghostty/ghostty.nix
     ../../modules/applications/git/git.nix
